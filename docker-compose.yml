@@ -1,15 +1,6 @@
 version: '3.8'
 
 services:
-  proxy:
-    image: nginx:1.27-alpine
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    ports:
-      - '80:80'
-    depends_on:
-      assistant:
-        condition: service_started
 
   # First we need top train the assistant.
   assistant_training:
@@ -32,7 +23,7 @@ services:
       - '--debug'
       - '--cors "*"'
     ports:
-      - '5005'
+      - '5005:5005'
     env_file:
       - .env
     depends_on:
