@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  proxy:
+    image: nginx-unprivileged:1.27-alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - '80:80'
+    depends_on:
+      assistant:
+        condition: service_started
+      assistant_rest:
+        condition: service_started
+
+  # First we need top train the assistant.
+  assistant_training:
+    image: europe-west3-docker.pkg.dev/rasa-releases/rasa-pro/rasa-pro:3.9.2-latest
+    volumes:
+      - .:/app
+    command:
+      - 'train'
+    env_file:
+      - .env
+    user: root
+
+  # Run Rasa Pro in websocket mode and with the inspector.
+  assistant:
+    image: europe-west3-docker.pkg.dev/rasa-releases/rasa-pro/rasa-pro:3.9.2-latest
+    volumes:
+      - .:/app
+    command:
+      - 'inspect'
+      - '--debug'
+      - '--cors "*"'
+    ports:
+      - '5005'
+    env_file:
+      - .env
+    depends_on:
+      assistant_training:
+        condition: service_completed_successfully
+    user: root
+
+  # Run Rasa Pro in REST API mode.
+  assistant_rest:
+    image: europe-west3-docker.pkg.dev/rasa-releases/rasa-pro/rasa-pro:3.9.2-latest
+    volumes:
+      - .:/app
+    command:
+      - 'run'
+      - '--enable-api'
+      - '--cors="*"'
+    ports:
+      - '5005'
+    env_file:
+      - .env
+    depends_on:
+      assistant_training:
+        condition: service_completed_successfully
+    user: root

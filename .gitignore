@@ -1,0 +1,11 @@
+.env
+
+config.yml
+endpoints.yml
+
+.config/
+.keras/
+.rasa/
+data/
+domain/
+models/
