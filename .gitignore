@@ -1,10 +1,5 @@
 .env
 
-actions.py
-config.yml
-domain.yml
-endpoints.yml
-
 *.pyc
 .config/
 .keras/
