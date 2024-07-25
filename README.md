@@ -5,7 +5,7 @@ Put the `docker-compose.yml` file in the root of your bot directory. This deploy
 - That within the bot directory, the model you want to use is already trained and is the latest archive available in the `models` directory.
 - That you have custom actions in a file called `actions.py` in the root of your bot directory.
 
-Ensure your `endpoints.yaml` file contains the following:
+Ensure your `endpoints.yml` file contains the following:
 ```
 action_endpoint:
   url: "http://action_server:5055/webhook"
