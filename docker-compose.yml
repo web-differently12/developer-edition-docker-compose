@@ -8,16 +8,12 @@ services:
     volumes:
       - .:/app
     command:
-      - 'inspect'
-      - '--debug'
+      - 'run'
       - '--cors "*"'
     ports:
       - '5005:5005'
     env_file:
       - .env
-    depends_on:
-      assistant_training:
-        condition: service_completed_successfully
     user: root
 
   tracker_store:
