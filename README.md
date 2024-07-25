@@ -25,4 +25,12 @@ RASA_PRO_LICENSE=<your Rasa Pro license goes here>
 OPENAI_API_KEY=<your OpenAI API key goes here>
 ```
 
-Deploy the bot using `docker-compose up`. You will be able to access it at http://localhost:5005/webhooks/inspector/inspect.html
+Deploy the bot using `sudo docker compose up`. 
+You should be able to send it a message by sending a POST request: 
+
+```
+curl -XPOST http://<host>:5005/webhooks/rest/webhook -d '{"sender": "test", "message": "Hi"}'
+```
+
+You can configure your assistant to respond on other channels by 
+modifying the `credentials.yml` file, see [here](https://rasa.com/docs/rasa-pro/connectors/messaging-and-voice-channels)
