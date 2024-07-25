@@ -14,13 +14,13 @@ Note you will need an [extended license](#) to run Rasa Pro Developer Edition on
 - `actions.py`
 - `models/model.tar.gz`
 
-3. Also create a file called `.env` in this directory with the following contents:
+3. Create a file called `.env` in the same directory with the following contents:
 ```
 RASA_PRO_LICENSE=<your Rasa Pro license goes here>
 OPENAI_API_KEY=<your OpenAI API key goes here>
 ```
 
-4. Deploy the bot using `sudo docker compose up`. (On older docker versions, it would be `sudo docker-compose up`)
+4. Deploy the bot by running `sudo docker compose up`. (On older docker versions, it would be `sudo docker-compose up`)
 
 5. Send your bot a message by sending a POST request: 
 
