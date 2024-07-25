@@ -2,17 +2,6 @@ version: '3.8'
 
 services:
 
-  # First we need top train the assistant.
-  assistant_training:
-    image: europe-west3-docker.pkg.dev/rasa-releases/rasa-pro/rasa-pro:3.9.3
-    volumes:
-      - .:/app
-    command:
-      - 'train'
-    env_file:
-      - .env
-    user: root
-
   # Run Rasa Pro with the inspector.
   assistant:
     image: europe-west3-docker.pkg.dev/rasa-releases/rasa-pro/rasa-pro:3.9.3
