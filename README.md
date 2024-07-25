@@ -7,7 +7,7 @@ Note you will need an [extended license](#) to run Rasa Pro Developer Edition on
 
 1. Create a VM on your cloud provider of choice, and install Docker. 
 
-2. Create a directory that contains the following files from this repo:
+2. Create a directory and copy in the following files from this repo:
 - `docker-compose.yml`
 - `endpoints.yml`
 - `credentials.yml`
