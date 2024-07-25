@@ -9,7 +9,6 @@ services:
       - .:/app
     command:
       - 'run'
-      - '--cors "*"'
     ports:
       - '5005:5005'
     env_file:
