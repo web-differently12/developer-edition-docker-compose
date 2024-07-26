@@ -28,5 +28,13 @@ OPENAI_API_KEY=<your OpenAI API key goes here>
 curl -XPOST http://<host>:5005/webhooks/rest/webhook -d '{"sender": "test", "message": "Hi"}'
 ```
 
-You can configure your assistant to respond on other channels by 
+## Customization
+
+Now that you have a demo assistant deployed, here are the next steps you might want to take:
+
+1. Upload your own model to replace the default one in the repo.
+2. Add your own custom action files, or [build a custom action server image](https://rasa.com/docs/rasa-pro/deploy/deploy-action-server/#using-your-custom-action-server-image)
+3. Configure your assistant to respond on other channels by 
 modifying the `credentials.yml` file, see [here](https://rasa.com/docs/rasa-pro/connectors/messaging-and-voice-channels)
+
+ 
