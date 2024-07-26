@@ -5,7 +5,7 @@ This is intended as a lightweight way to deploy a Rasa assistant that will recei
 
 Note you will need an [extended license](#) to run Rasa Pro Developer Edition on a server. 
 
-1. Create a VM on your cloud provider of choice, and install Docker. 
+1. Create a VM on your cloud provider of choice, and install Docker. 1vCPU and 2GB RAM should be sufficient unless you've trained a big NLU model.
 
 2. Create a directory and copy in the following files from this repo:
 - `docker-compose.yml`
